@@ -6,12 +6,19 @@
 
   <div class="panel-body">
     <%= post.content %>
-    <!-- button -->
+
+    <div class="text-right">
+      <!-- btn-like -->
+      <span id="post-like-<%= post.id %>">
+       <%= render :partial => "like", :locals => {:post => post} %>
+     </span>
+    <!-- button-delete -->
      <% if current_user && post.user == current_user %>
-      <p class="text-right">
+      <p class="pull-right" style="margin-left: 5px;">
         <%= link_to('Delete', post_path(post), method: :delete, :remote => true, class:"btn btn-danger") %>
       </p>
      <% end %>
     </div>
+  </div>
 
   </div>
