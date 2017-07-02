@@ -17,7 +17,23 @@
         <%= link_to "jquery 练习四", jquery_4_path %> |
         <%= link_to "jquery 练习五", jquery_5_path %> |
       </div>
+      <div class="row">
+        <% if flash[:notice] %>
+          <%= flash[:notice] %>
+        <% end %>
 
+        <% if flash[:alert] %>
+          <%= flash[:alert] %>
+        <% end %>
+
+        <% if current_user %>
+          <%= link_to('登出',destroy_user_session_path, :method => :delete) %>
+          <%= link_to('修改密码',edit_registration_path(:user)) %>
+        <% else %>
+           <%= link_to('登录', new_session_path(:user)) %> |
+           <%= link_to('注册',new_registration_path(:user)) %>
+        <% end %>
+      </div>
     </div>
     <%= yield %>
   </body>
