@@ -1,3 +1,8 @@
+<%= simple_form_for Post.new do |f| %>
+<%= f.input :content %>
+<%= f.submit :class => "btn btn-primary" %>
+<% end %>
+<br>
 <% @posts.each do |post| %>
 
   <div class="panel panel-default">
@@ -8,6 +13,12 @@
 
     <div class="panel-body">
       <%= post.content %>
+      <!-- button -->
+      <% if current_user && post.user == current_user %>
+        <p class="text-right">
+          <%= link_to('Delete', post_path(post), method: :delete, class:"btn btn-danger") %>
+        </p>
+      <% end %>
     </div>
 
   </div>
