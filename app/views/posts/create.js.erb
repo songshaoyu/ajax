@@ -1,0 +1,8 @@
+// 新增
+<% if @post.valid? %>
+$("#post-list").prepend("<%= j render :partial => "post", :locals => { :post => @post} %>");
+// 清空content输入框
+$("#post_content").val("");
+<% else %>
+  alert("post error");
+<% end %>  
