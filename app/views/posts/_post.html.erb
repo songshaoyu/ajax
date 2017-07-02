@@ -5,6 +5,8 @@
   </div>
 
   <div class="panel-body">
+    <!-- like.count -->
+      <span id="post-thumbsup-<%= post.id %>" class="label label-success"> <%= post.likes.count %> 👍</span>
     <%= post.content %>
 
     <div class="text-right">
