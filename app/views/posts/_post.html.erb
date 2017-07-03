@@ -17,7 +17,9 @@
     <!-- button-delete -->
      <% if current_user && post.user == current_user %>
       <p class="pull-right" style="margin-left: 5px;">
-        <%= link_to('Delete', post_path(post), method: :delete, :remote => true, class:"btn btn-danger") %>
+        <%= link_to post_path(post), method: :delete, :remote => true, class:"btn btn-danger" do %>
+
+        <i class="fa fa-trash" aria-hidden="true"></i> <% end %>
       </p>
      <% end %>
     </div>

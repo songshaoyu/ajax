@@ -4,8 +4,11 @@
 
 <% if current_user %>
   <% if post.find_like(current_user) %>
-     <%= link_to "-1", unlike_post_path(post), :method => :post, :remote => true, :class => "btn btn-primary" %>
+     <%= link_to unlike_post_path(post), :method => :post, :remote => true, :class => "btn btn-primary" do %>
+     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+     <% end %>
   <% else %>
-      <%= link_to "+1", like_post_path(post), :method => :post, :remote => true, :class => "btn btn-primary" %>
+      <%= link_to like_post_path(post), :method => :post, :remote => true, :class => "btn btn-primary" do %>
+      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <% end %>
   <% end %>
 <% end %>
