@@ -12,4 +12,9 @@ class User < ApplicationRecord
   # likes
   has_many :likes, :dependent => :destroy
   has_many :liked_posts, :through => :likes, :source => :post
+  # collect
+  has_many :collects, :dependent => :destroy
+  has_many :collected_posts, :through => :collects, :source => :post
+
+  
 end

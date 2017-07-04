@@ -7,13 +7,20 @@
   <div class="panel-body">
     <!-- like.count -->
       <span id="post-thumbsup-<%= post.id %>" class="label label-success"> <%= post.likes.count %> 👍</span>
-    <%= post.content %>
+</span>
+
+  <p style="margin-top: 20px;">  <%= post.content %></p>
 
     <div class="text-right">
       <!-- btn-like -->
       <span id="post-like-<%= post.id %>">
        <%= render :partial => "like", :locals => {:post => post} %>
      </span>
+     <!-- collect-btn -->
+     <span id="post-collect-<%= post.id %>">
+       <%= render :partial => "collect", :locals => { :post => post } %>
+     </span>
+
     <!-- button-delete -->
      <% if current_user && post.user == current_user %>
       <p class="pull-right" style="margin-left: 5px;">
